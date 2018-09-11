@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>elevant-tab</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+  </head>
+
+  <body>
+    <div class="title" id="heading">
+      <row class="ten columns">
+      <div id="title">
+        <h4>elevant-tab</h4>
+      </div>
+      </row>
+      <row class="two columns">
+      <div align=right class="cog">
+        <h4><span class="fa fa-wrench" id="settings-btn"></span></h4>
+        <div id="menu"></div>
+      </div>
+      </row>
+    </div>
+
+    <div class="maincont" id="panel">
+      <row class="four columns" id="logo">
+      <img src="images/logo/light/chrome.png" width="300" height="300">
+      </row>
+      <row class="eight columns" id="infopanel">
+      <br>
+      <h2>Hey nocturnalbeast!</h2>
+      <h3><span id="datetime"></span></h3>
+      </row>
+    </div>
+
+    <div class="maincont" id="searchbar">
+      <img src="images/logo/light/chrome.png" width="200" height="200">
+      <form action="" method="GET">
+        <input type="text" name="search_text" id="search_text" placeholder="Search" class="srch-p1">
+        <input type="button" name="search_button" id="search_button" class="srch-p2">
+      </form>
+    </div>
+
+    <div class="btn-bar">
+      <button class="ele-btn" id="search-btn">search</button>
+      <button class="ele-btn">news feed</button>
+      <button class="ele-btn">quick launch</button>
+    </div>
+
+    <script>
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString() + " | ";
+    $(document).ready(function(){
+      $("#searchbar").hide();
+      $("#search-btn").click(function(){
+        $("#panel").fadeToggle("fast");
+        $("#searchbar").fadeToggle("fast");
+      });
+    });
+    </script>
+  </body>
+
+</html>
