@@ -14,9 +14,26 @@
     <link rel="stylesheet" href="css/main.css">
 
     <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <script>
+    function dispTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12;      
+      m = chkTime(m);
+      document.getElementById("datetime").innerHTML = h + ":" + m + " " + ampm;
+      var t = setTimeout(dispTime, 500);
+    }
+    function chkTime(i) {
+      if (i < 10) {i = "0" + i};
+      return i;
+    }
+    </script>
   </head>
 
-  <body>
+  <body onload="dispTime()">
     <div class="title" id="heading">
       <row class="ten columns">
       <div id="title">
@@ -33,17 +50,17 @@
 
     <div class="maincont" id="panel">
       <row class="four columns" id="logo">
-      <img src="images/logo/light/chrome.png" width="300" height="300">
+      <img src="images/logo/light/firefox.png" width="300" height="300">
       </row>
       <row class="eight columns" id="infopanel">
       <br>
       <h2>Hey nocturnalbeast!</h2>
-      <h3><span id="datetime"></span></h3>
+      <h3>It's <span id="datetime"></span>.</h3>
       </row>
     </div>
 
     <div class="maincont" id="searchbar">
-      <img src="images/logo/light/chrome.png" width="200" height="200">
+      <img src="images/logo/light/firefox.png" width="200" height="200">
       <form action="" method="GET">
         <input type="text" name="search_text" id="search_text" placeholder="Search" class="srch-p1">
         <input type="button" name="search_button" id="search_button" class="srch-p2">
@@ -57,8 +74,6 @@
     </div>
 
     <script>
-    var dt = new Date();
-    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString() + " | ";
     $(document).ready(function(){
       $("#searchbar").hide();
       $("#search-btn").click(function(){

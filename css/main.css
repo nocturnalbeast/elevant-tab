@@ -90,6 +90,11 @@
   bottom: 0; left: 0; right: 0;
 }
 
+.srch-p1, input[type="text"], textarea, select{
+  background-color: #282828;
+  color: #aaaaaa;
+}
+
 .ele-btn {
   background-color: #383838;
   color: #dadada;
